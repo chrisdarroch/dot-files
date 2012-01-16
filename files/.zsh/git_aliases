@@ -49,6 +49,7 @@ alias grsh='git reset --soft HEAD~'
 alias grv='git remote -v'
 alias gs='git show'
 alias gs.='git show --color-words="."'
+alias gst='git status -s'
 alias gup='git smart-pull'
 gupstation() {
   gup
