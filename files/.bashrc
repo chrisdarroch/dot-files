@@ -61,3 +61,6 @@ alias less='less -R'
 . ~/.aliases/git
 . ~/.aliases/svn
 . ~/.aliases/commands
+
+# RBENV
+[[ -d "$HOME/.rbenv" ]] && export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
