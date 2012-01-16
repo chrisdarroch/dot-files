@@ -2,15 +2,27 @@ require 'rake'
  
 desc "install the dot files into user's home directory"
 task :install do
+  @dot_files  = File.dirname(__FILE__)
+  files       = Dir.entries('files').reject { |d| /^\.+$/ =~ d }
+  binaries    = Dir.entries('bin').reject { |d| /^\.+$/ =~ d }
+
+  puts "installing dot-files..."
+  walk_files(files)
+
+  puts "installing binaries..."
+  walk_files(binaries, File.join(ENV['HOME'], 'bin'))
+
+  puts "done!"
+end
+
+def walk_files(files, destination_root = ENV['HOME'])
   replace_all = false
   opt         = nil
-  dot_files   = File.dirname(__FILE__)
-  files       = Dir.entries('files').reject { |d| /^\.+$/ =~ d } # Exclude the . and .. directories
-  
+
   files.each do |file|
     file_name        = file.split(/\//).last
-    source_file      = File.join(dot_files, file)
-    destination_file = File.join(ENV['HOME'], "#{file_name}")
+    source_file      = File.join(@dot_files, file)
+    destination_file = File.join(destination_root, "#{file_name}")
 
     if File.exist?(destination_file) || File.symlink?(destination_file)
       unless replace_all
