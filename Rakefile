@@ -10,7 +10,7 @@ task :install do
   files.each do |file|
     file_name        = file.split(/\//).last
     source_file      = File.join(dot_files, file)
-    destination_file = File.join(ENV['HOME'], ".#{file_name}")
+    destination_file = File.join(ENV['HOME'], "#{file_name}")
 
     if File.exist?(destination_file) || File.symlink?(destination_file)
       unless replace_all
