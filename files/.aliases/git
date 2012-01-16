@@ -5,31 +5,62 @@ function git-branch-name {
 concise_logging_format='--pretty=format:%Cblue%h%Creset %cr %Cgreen%an%Creset %s'
 color_ruby_words="--color-words='(:|@|@@|\$)?[a-zA-Z_][a-zA-Z0-9_]*[?!]?'"
 
-alias gits='git status'
-alias gita='git add'
-alias gitau='git add -u'
-alias gitd='git diff'
-alias gitdc='git diff --cached'
-alias gitdw="git diff $color_ruby_words"
-alias gitdcw="git diff --cached $color_ruby_words"
-alias gitd.="git diff --color-words='.'"
-alias gitdc.="git diff --cached --color-words='.'"
-alias gitc='git commit -v'
-alias gitb='git branch -v'
-alias gitl='git log -p'
-alias gitlg='gitl --graph'
-alias gitlc='git log "$concise_logging_format"'
-alias gitlcg='gitlc --graph'
-alias gitlg='git log -p -g'
-alias gitlor_raw='git --no-pager log --graph ORIG_HEAD..HEAD "$concise_logging_format"'
-alias gitlpend_raw='git --no-pager log --graph $(git config branch.`git-branch-name`.remote)/`git-branch-name`..HEAD "$concise_logging_format"'
-alias gitlor='echo -e "commits from ${color_red}ORIG_HEAD${color_none} to ${color_red}HEAD${color_none}" &&
-  gitlor_raw && echo'
-alias gitlpend='echo -e "commits from ${color_red}$(git config branch.`git-branch-name`.remote)/`git-branch-name`${color_none} to ${color_red}HEAD${color_none}" &&
-  gitlpend_raw && echo'
-alias gitlorp='gitlor_raw -p'
-alias gitup='git pull && gitlor && git submodule update'
-alias gitp='gitup && gitlpend && git push'
-alias gitpt='gitp && git push --tags'
-
-#alias git-set-remote='echo git config branch.`git-branch-name`.remote "$1" && echo git config branch.`git-branch-name`.merge "refs/heads/$2"'
+alias ga='git add'
+alias gap='ga -p'
+alias gau='git add -u'
+alias gbr='git branch -v'
+function gc {
+  git diff --cached | grep '\btap[ph]\b' >/dev/null &&
+    echo "\e[0;31;29mOops, there's a #tapp or similar in that diff.\e[0m" ||
+    git commit -v "$@"
+}
+alias gc!='git commit -v'
+alias gca='git commit -v -a'
+alias gcam='gca --amend'
+alias gch='git cherry-pick'
+alias gcm='git commit -v --amend'
+alias gco='git checkout'
+alias gcop='gco -p'
+alias gd='git diff -M'
+alias gd.='git diff -M --color-words="."'
+alias gdc='git diff --cached -M'
+alias gdc.='git diff --cached -M --color-words="."'
+alias gf='git fetch'
+function git-new {
+  mkdir "$1" &&
+  cd "$1" &&
+  git init &&
+  touch .gitignore &&
+  git add .gitignore &&
+  git commit -m "Added .gitignore."
+}
+alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias gl='glog --graph'
+alias gla='gl --all'
+function gls {
+  query="$1"
+  shift
+  glog --pickaxe-regex "-S$query" "$@"
+}
+alias gm='git merge --no-ff'
+alias gmf='git merge --ff-only'
+alias gp='git push'
+alias gpt='gp --tags'
+alias gr='git reset'
+alias grb='git rebase -p'
+alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
+alias grh='git reset --hard'
+alias grp='gr --patch'
+alias grsh='git reset --soft HEAD~'
+alias grv='git remote -v'
+alias gs='git show'
+alias gs.='git show --color-words="."'
+alias gst='git status -s'
+alias gup='git smart-pull'
+function gupstation {
+  gup
+  gf production
+  gf staging
+}
+alias graf='git remote add $argv[1] $argv[2] && gf $argv[1]'
