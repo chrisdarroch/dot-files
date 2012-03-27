@@ -64,3 +64,5 @@ alias less='less -R'
 
 # RBENV
 [[ -d "$HOME/.rbenv" ]] && export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+
+[[ -d "$HOME/.extend" ]] && . ~/.extend/bash
