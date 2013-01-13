@@ -1,11 +1,24 @@
 [user]
 	name = Chris Darroch
-	email = chris@chrisdarroch.com
+	email = cdarroch@atlassian.com
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/cdarroch/.gitignore
+	autocrlf = input
 [github]
 	user = chrisdarroch
+[apply]
+	whitespace = fix
+[alias]
+	unadd = reset HEAD
+[push]
+	default = tracking
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
