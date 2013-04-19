@@ -62,7 +62,7 @@ alias less='less -R'
 . ~/.aliases/svn
 . ~/.aliases/commands
 
-# RBENV
-[[ -d "$HOME/.rbenv" ]] && export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 
 [[ -d "$HOME/.extend" ]] && . ~/.extend/bash
+
+echo "Loading RVM" && source "$HOME/.rvm/scripts/rvm"
