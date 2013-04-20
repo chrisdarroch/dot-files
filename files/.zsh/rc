@@ -26,7 +26,7 @@ unsetopt autocd
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/ben/.zshrc'
+zstyle :compinstall filename '/Users/chrisdarroch/.zshrc'
 
 autoload -Uz compinit
 compinit
