@@ -15,7 +15,7 @@ if [ $system_name == 'Linux' ]; then
 else
   [ -f /opt/local/etc/bash_completion ] && . /opt/local/etc/bash_completion
 
-  export EDITOR='mate -w'
+  export EDITOR='subl -w'
 fi
 
 bind "set show-all-if-ambiguous On"
