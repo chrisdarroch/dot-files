@@ -8,3 +8,7 @@ function tm() {
   else open *.tmproj
   fi
 }
+function goaway() {
+    local processTerm="$1"
+    ps -ef | grep $processTerm | grep -v grep | awk '{print $2}' | xargs kill -9
+}
