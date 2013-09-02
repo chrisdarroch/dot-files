@@ -25,3 +25,5 @@ alias add_alias='mate -w ~/.zsh/aliases; cd ~/.dot-files; ga files/.zsh/aliases;
 alias git_alias='mate -w ~/.zsh/git_aliases; cd ~/.dot-files; ga files/.zsh/git_aliases; gc'
 
 alias b='babushka'
+
+alias fixlines="perl -pi -e 'tr/\r//d' \$1"
