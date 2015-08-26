@@ -1,0 +1,8 @@
+#!/bin/bash
+sed -i '' -e 's/#.*$//' -e '/^$/d' $1
+if [[ "$(head -n1 $1)" == '@ '* ]]; then
+    jira=$(git symbolic-ref -q HEAD | grep -o "[A-Z]\+-[0-9]\+")
+    if [ -n "$jira" ]; then       
+        sed -i '' "s/^@ /$jira: /g" $1
+    fi
+fi
