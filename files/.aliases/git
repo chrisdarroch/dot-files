@@ -26,6 +26,7 @@ alias gd.='git diff -M --color-words="."'
 alias gdc='git diff --cached -M'
 alias gdc.='git diff --cached -M --color-words="."'
 alias gf='git fetch'
+alias gfa='git fetch --all --prune'
 function git-new {
   mkdir "$1" &&
   cd "$1" &&
