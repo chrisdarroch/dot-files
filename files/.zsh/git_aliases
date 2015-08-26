@@ -28,6 +28,7 @@ git-new() {
   git add .gitignore &&
   git commit -m "Added .gitignore."
 }
+alias gitx='gl'
 alias glog='git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias gl='glog --graph'
 alias gla='gl --all'
