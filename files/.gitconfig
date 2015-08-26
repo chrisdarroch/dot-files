@@ -35,3 +35,5 @@
 	prompt = false
 [merge]
 	tool = Kaleidoscope
+[log]
+	date = iso
