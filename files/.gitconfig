@@ -6,7 +6,7 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /Users/cdarroch/.gitignore
+	excludesfile = ~/.gitignore
 	autocrlf = input
 [github]
 	user = chrisdarroch
@@ -37,3 +37,5 @@
 	tool = Kaleidoscope
 [log]
 	date = iso
+[init]
+	templatedir = ~/.git_template
