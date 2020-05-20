@@ -64,5 +64,7 @@ alias less='less -R'
 
 
 #[[ -d "$HOME/.envs" ]] && . ~/.envs/ruby
+#[[ -f "$HOME/.bash/ruby" ]] && . ~/.bash/ruby
 [[ -d "$HOME/.envs" ]] && . ~/.envs/node
+[[ -f "$HOME/.bash/node" ]] && . ~/.bash/node
 [[ -d "$HOME/.extend" ]] && . ~/.extend/bash

@@ -49,5 +49,7 @@ function self-insert-backslash() { LBUFFER+='\'; zle .self-insert }
 zle -N self-insert-backslash
 
 #[[ -d "$HOME/.envs" ]] && . ~/.envs/ruby
+#[[ -f "$HOME/.zsh/ruby" ]] && . ~/.zsh/ruby
 [[ -d "$HOME/.envs" ]] && . ~/.envs/node
+[[ -f "$HOME/.zsh/node" ]] && . ~/.zsh/node
 [[ -d "$HOME/.extend" ]] && . ~/.extend/zsh
