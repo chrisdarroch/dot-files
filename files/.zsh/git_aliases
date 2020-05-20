@@ -9,7 +9,7 @@ gc() {
 }
 alias gc!='git commit -v'
 alias gca='git commit -v -a'
-alias gcam='gca --amend'
+alias gcam='gc --amend'
 alias gch='git cherry-pick'
 alias gcm='git commit -v --amend'
 alias gco='git checkout'
@@ -18,6 +18,11 @@ alias gd='git diff -M'
 alias gd.='git diff -M --color-words="."'
 alias gdc='git diff --cached -M'
 alias gdc.='git diff --cached -M --color-words="."'
+gdist() {
+  basename="$1"
+  basesha="`git merge-base HEAD $basename`"
+  gd "$basesha" "$basename"
+}
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 git-new() {
@@ -42,9 +47,9 @@ alias gmf='git merge --ff-only'
 alias gp='git push'
 alias gpt='gp --tags'
 alias gr='git reset'
-alias grb='git rebase -p'
-alias grbc='git rebase --continue'
-alias grbi='git rebase -i'
+alias grb='HUSKY_SKIP_HOOKS=1 git rebase -p'
+alias grbc='HUSKY_SKIP_HOOKS=1 git rebase --continue'
+alias grbi='HUSKY_SKIP_HOOKS=1 git rebase -i'
 alias grh='git reset --hard'
 alias grp='gr --patch'
 alias grsh='git reset --soft HEAD~'
@@ -52,7 +57,7 @@ alias grv='git remote -v'
 alias gs='git show'
 alias gs.='git show --color-words="."'
 alias gst='git status -s'
-alias gup='git smart-pull'
+alias gup='HUSKY_SKIP_HOOKS=1 git smart-pull'
 gupstation() {
   gup
   gf production

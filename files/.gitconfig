@@ -26,6 +26,7 @@
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
 	tool = Kaleidoscope
+	renameLimit = 100000
 [difftool]
 	prompt = false
 [mergetool "Kaleidoscope"]
@@ -39,3 +40,8 @@
 	date = iso
 [init]
 	templatedir = ~/.git_template
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
