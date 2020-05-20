@@ -1,6 +1,10 @@
 setopt prompt_subst
 setopt hist_ignore_dups
 
+# To make new folders open in the last directory on OSX
+precmd () {print -Pn "\e]2; %~/ \a"}
+preexec () {print -Pn "\e]2; %~/ \a"}
+
 . ~/.zsh/prompt
 . ~/.zsh/aliases
 . ~/.zsh/git_aliases
@@ -22,11 +26,10 @@ SAVEHIST=1000000
 setopt extendedglob notify
 setopt append_history
 setopt inc_append_history
-unsetopt autocd
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/chrisdarroch/.zshrc'
+zstyle :compinstall filename '/Users/cdarroch/.zshrc'
 
 autoload -Uz compinit
 compinit
