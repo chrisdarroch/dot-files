@@ -45,6 +45,6 @@ bindkey '^' self-insert-backslash
 function self-insert-backslash() { LBUFFER+='\'; zle .self-insert }
 zle -N self-insert-backslash
 
+#[[ -d "$HOME/.envs" ]] && . ~/.envs/ruby
+[[ -d "$HOME/.envs" ]] && . ~/.envs/node
 [[ -d "$HOME/.extend" ]] && . ~/.extend/zsh
-
-echo "Loading RVM" && source "$HOME/.rvm/scripts/rvm"

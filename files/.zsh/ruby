@@ -1,0 +1,3 @@
+ruby_version() {
+  echo " $(ruby -v | awk '{print $2}')"
+}

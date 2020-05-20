@@ -16,7 +16,5 @@ alias d='gd $argv'
 
 alias df='df -kh $argv'
 alias reload_webkit='osascript -e 'tell application "WebKit" to do JavaScript "window.location.reload()" in front document''
-alias rs="bundle exec rake spec"
-alias b='babushka'
 
 alias fixlines="perl -pi -e 'tr/\r//d' \$1"

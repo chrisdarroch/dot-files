@@ -1,0 +1,8 @@
+export RVM_DIR="$HOME/.rvm/scripts"
+if [ -s "$RVM_DIR/rvm" ]; then
+    echo "Loading RVM"
+    source "$RVM_DIR/rvm"
+    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+    alias rs="bundle exec rake spec"
+fi

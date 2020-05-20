@@ -63,8 +63,6 @@ alias less='less -R'
 . ~/.aliases/commands
 
 
+#[[ -d "$HOME/.envs" ]] && . ~/.envs/ruby
+[[ -d "$HOME/.envs" ]] && . ~/.envs/node
 [[ -d "$HOME/.extend" ]] && . ~/.extend/bash
-
-echo "Loading RVM" && source "$HOME/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
